@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FormularioPractica</string>
+    <string name="nombre">Nombre: </string>
+    <string name="edad">Edad: </string>
+    <string name="valoracion">Valoración: </string>
+    <string name="sexo">Sexo </string>
+    <string name="masculino">M</string>
+    <string name="femenino">F</string>
+    <string name="btnValidar">Validar</string>
+    <string name="btnMostar">Mostrar Lista</string>
+</resources>
