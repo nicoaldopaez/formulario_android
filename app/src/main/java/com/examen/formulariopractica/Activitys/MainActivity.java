@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private Button validar;
     private Controlador ctrl;
     private Button lista;
-    private ArrayList<Persona> listaPersonas;
     private int incorrecto;
 
 
@@ -46,9 +45,6 @@ public class MainActivity extends AppCompatActivity {
         cargarElementosGraficos();
 
         incorrecto = getColor(R.color.color_error);
-
-
-        listaPersonas = new ArrayList<>();
 
         ctrl = new Controlador(this);
 

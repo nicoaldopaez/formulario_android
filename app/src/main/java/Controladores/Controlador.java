@@ -1,9 +1,12 @@
 package Controladores;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 
 import com.examen.formulariopractica.Activitys.ActivityLista;
+import com.examen.formulariopractica.Activitys.AdminSqlite;
 import com.examen.formulariopractica.Activitys.MainActivity;
 import com.examen.formulariopractica.Activitys.Persona;
 import com.examen.formulariopractica.R;
@@ -30,6 +33,10 @@ public class Controlador implements View.OnClickListener {
 
     private Intent intent;
 
+    private AdminSqlite adminSqliteHelper;
+
+    private SQLiteDatabase db;
+
     public Controlador(MainActivity activity) {
 
 
@@ -40,6 +47,10 @@ public class Controlador implements View.OnClickListener {
         correcto = activity.getColor(R.color.color_correcto);
 
         incorrecto = activity.getColor(R.color.color_error);
+
+        adminSqliteHelper = new AdminSqlite(activity,"DBEjemplo1.sqlite",null,1);
+
+        db=adminSqliteHelper.getWritableDatabase();
 
 
     }
@@ -91,6 +102,21 @@ public class Controlador implements View.OnClickListener {
 
     }
 
+    private void insertarRegistro(){
+        String nombre = activity.getNombre();
+        String edad = activity.getEdad();
+
+        if(db != null && nombre != null && edad != null){
+
+            ContentValues nuevoRegistro = new ContentValues();
+            nuevoRegistro.put("nombre",nombre);
+            nuevoRegistro.put("edad",edad);
+
+            db.insert(personas,null,nuevoRegistro);
+
+        }
+    }
+
 
 
 
@@ -132,5 +158,7 @@ public class Controlador implements View.OnClickListener {
     public boolean validarSexo(){
         return activity.getFem() || activity.getMasc();
     }
+
+
 
 }

@@ -69,7 +69,7 @@ public class PersonaAdapter extends BaseAdapter {
         }
         Persona pers = personas.get(position);
         holder.nombre.setText(pers.getNombre());
-        holder.edad.setText(pers.getEdad());
+        holder.edad.setText(""+pers.getEdad());
         return v;
     }
     static  class ViewHolder{

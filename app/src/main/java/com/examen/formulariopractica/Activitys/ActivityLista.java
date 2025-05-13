@@ -29,11 +29,11 @@ public class ActivityLista extends AppCompatActivity {
         cargarElementosGraficos();
 
         Bundle bundle = getIntent().getExtras();
-        ArrayList<Persona> personas2 = bundle.getSerializable("personas", ArrayList.class);
+
         ArrayList<Persona> personas = null;
 
         if (bundle != null && bundle.getSerializable("listaPersonas", ArrayList.class) != null) {
-            personas = bundle.getSerializable("personas", ArrayList.class);
+            personas = bundle.getSerializable("listaPersonas", ArrayList.class);
         } else {
             Toast.makeText(ActivityLista.this, "Intent no esperado", Toast.LENGTH_LONG).show();
         }
